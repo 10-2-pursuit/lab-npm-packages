@@ -42,8 +42,10 @@ function newMemberArrayToObject(member) {
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
-
+function groupClassByInstructor(collection) {
+const groupByInstructors =   _.groupBy(collection, "instructor")
+  return groupByInstructors
+}
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
@@ -66,7 +68,6 @@ if (workingInstructor > 0) {
 } else {
   return "There is no instructor by that name."
 }
-
 }
 
 
@@ -76,7 +77,7 @@ if (workingInstructor > 0) {
  * @return {number} The array of member objects with only active members
  */
 function removeInactiveMembers(collection) {
-  return _.VERSION(collection, {"currentMember":true});
+  return _.filter(collection, {"currentMember":true});
 }
 
 /**
