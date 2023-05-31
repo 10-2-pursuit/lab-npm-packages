@@ -88,6 +88,7 @@ function getUniqueClasses(collection) {
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
 function orderClassesByTitleAndLevel(collection) {
+  return _.orderBy(_.map(collection, (a) => {return {title:a.title, instructor:a.instructor, level:a.level}}), ["title", "level"], ["asc", "desc"])
 }
 
 module.exports = {
