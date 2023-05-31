@@ -94,7 +94,9 @@ function getUniqueClasses(collection, priceInCents) {
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+function orderClassesByTitleAndLevel(collection) {
+return _.map(_.orderBy(collection, ['title', 'level'], ['asc', 'desc']), ({ title, instructor, level }) => ({ title, instructor, level }))
+}
 
 module.exports = {
   numberOfKeys,
