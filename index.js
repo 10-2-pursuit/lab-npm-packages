@@ -28,7 +28,7 @@ function sumNumbers(array) {
  * @return {number} The sum of the numbers in an array
  */
 function newMemberArrayToObject(member) {
-  //return _.zipObject(member[0],member[1]);
+  
 }
 
 /**
@@ -37,7 +37,7 @@ function newMemberArrayToObject(member) {
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
 function groupClassByInstructor(collection) {
-
+  return _.groupBy(collection, "instructor");
 }
 
 /**
@@ -45,7 +45,9 @@ function groupClassByInstructor(collection) {
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) {}
+function omitAgeFromMembers(collection) {
+  return _.without(collection, "age")
+}
 
 /**
  * Return the count of the number of classes a particular instructor teaches
@@ -54,6 +56,9 @@ function omitAgeFromMembers(collection) {}
  * @return {number} The sum of the numbers in an array
  */
 function countClassesByInstructor(collection, instructor) {
+  if(!_.find(collection, a => a.instructor == instructor)){
+    return "There is no instructor by that name.";
+  }
   return _.filter(collection, a => a.instructor == instructor).length;
 }
 
@@ -72,7 +77,7 @@ function removeInactiveMembers(collection) {
  * @return {number} An array of objects that have a unique title and a price
  */
 function getUniqueClasses(collection) {
-  return _.uniq(collection);
+  return _.map(_.uniqBy(collection, "title"), (a) => {return {title:a.title, priceInCents:a.priceInCents}});
 }
 
 /**
@@ -81,7 +86,8 @@ function getUniqueClasses(collection) {
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+function orderClassesByTitleAndLevel(collection) {
+}
 
 module.exports = {
   numberOfKeys,
