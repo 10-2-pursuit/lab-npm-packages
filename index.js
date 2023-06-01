@@ -39,7 +39,6 @@ function newMemberArrayToObject(member) {
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
 function groupClassByInstructor(collection) {
-  console.log(collection)
   let newObj = {}
   _.each(collection, x => {
     if(!newObj[x.instructor]){
@@ -77,14 +76,27 @@ function countClassesByInstructor(collection, instructor) {
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+  let resultArr = []
+  _.each(collection,(member) => { member.currentMember ? resultArr.push(member): null})
+  return resultArr
+}
 
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
+function getUniqueClasses(collection) {
+  let resultArr = []
+  let filterArr = []
+   _.each(collection, (thisClass) => {
+      if(!filterArr.includes(thisClass.title)) {
+        filterArr.push(thisClass.title)
+        resultArr.push(_.pick(thisClass,["priceInCents","title"])) } 
+  })
+  return resultArr
+}
 
 /**
  * Get a list of classes organized by title, then by level.
@@ -92,7 +104,12 @@ function getUniqueClasses(collection) {}
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+function orderClassesByTitleAndLevel(collection) {
+  let newArr = _.map(collection, (x) => {
+    return _.pick(x,["title","level","instructor"])
+  })
+  return _.orderBy(newArr, ['title', 'level'], ['asc', 'desc'])
+}
 
 module.exports = {
   numberOfKeys,
