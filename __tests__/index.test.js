@@ -59,13 +59,13 @@ describe("groupClassByInstructor()", () => {
   });
 });
 
-// describe("omitAgeFromMembers()", () => {
-//   test("it returns the members without their ages", () => {
-//     const actual = omitAgeFromMembers(members);
-//     const expected = membersWithoutAges;
-//     expect(actual).toStrictEqual(expected);
-//   });
-// });
+describe("omitAgeFromMembers()", () => {
+  test("it returns the members without their ages", () => {
+    const actual = omitAgeFromMembers(members);
+    const expected = membersWithoutAges;
+    expect(actual).toStrictEqual(expected);
+  });
+});
 
 describe("countClassesByInstructor()", () => {
   test("it returns the number of keys in an object", () => {
