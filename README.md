@@ -38,7 +38,7 @@ const yogaClass = {
 };
 ```
 
-The function to write is one that returns just the `title` and the `level`. Go to the [documentation for Lodash](https://lodash.com/docs/4.17.15) and find the `Object` section since you are working with an object. Click on various methods until you find one with a description that makes sense for the task.
+The function to write is one that returns just the `title` and the `level`. Go to the [documentation for Lodash](://lodahttpssh.com/docs/4.17.15) and find the `Object` section since you are working with an object. Click on various methods until you find one with a description that makes sense for the task.
 
 In this case, `_.pick()` is a good choice.
 
