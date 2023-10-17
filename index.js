@@ -11,7 +11,7 @@ const newMember = require("./data/new-member");
  */
 function numberOfKeys(obj) {
   const keys =_. keysIn(yogaClasses [0]);
-   return keys. length;
+   return keys.length;
 }
 
 /**
